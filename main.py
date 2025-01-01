@@ -11,7 +11,6 @@ def main():
         print(f"Loading {file_path}...")
         data = load_data(file_path)
         if data is not None:
-            data = pd.dataframe(data)
 
             # Data Quality Check
             check_data_quality(data)
@@ -30,6 +29,7 @@ def main():
             time_series_analysis(cleaned_data, ["GHI", "DNI", "DHI", "Tamb"])
             correlation_analysis(cleaned_data)
             wind_analysis(cleaned_data)
+            break
 
 if __name__ == "__main__":
     main()

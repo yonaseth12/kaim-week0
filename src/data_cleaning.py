@@ -26,14 +26,18 @@ def clean_data(data):
     Handle missing values, outliers, and invalid entries.
     """
     # Drop entirely null columns like 'Comments'
-    data = data.dropna(axis=1, how='all')
+    data = data.dropna(axis=1, how='all').copy()
+
+    # Select numeric columns
+    numeric_cols = data.select_dtypes(include=[np.number])
 
     # Fill missing numeric values with median
-    for col in data.select_dtypes(include=[np.number]):
-        data[col] = data[col].fillna(data[col].median())
+    for col in numeric_cols.columns:
+        data.loc[:, col] = data[col].fillna(numeric_cols[col].median())
 
     # Remove outliers using Z-scores for numeric columns
-    z_scores = np.abs((data.select_dtypes(include=[np.number]) - data.mean()) / data.std())
-    data = data[(z_scores < 3).all(axis=1)]
-    
+    z_scores = (numeric_cols - numeric_cols.mean()) / numeric_cols.std()
+    filtered_indices = (np.abs(z_scores) < 3).all(axis=1)
+    data = data.loc[filtered_indices].copy()
+
     return data
