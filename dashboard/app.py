@@ -2,13 +2,13 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from dashboard.utils import load_data, plot_time_series
+import utils
 
 # Set page title
 st.title("MoonLight Energy Solutions Dashboard")
 
 # Load data
-data = load_data("../data/processed/cleaned_data.csv")
+data = utils.load_data("../data/processed/cleaned_data.csv")
 
 # Sidebar filters
 st.sidebar.header("Filters")
@@ -19,7 +19,7 @@ filtered_data = data[data['Timestamp'].dt.month == month_filter]
 
 # EDA visualizations
 st.subheader("Time Series Analysis")
-plot_time_series(filtered_data, ["GHI", "DNI", "DHI", "Tamb"])
+utils.plot_time_series(filtered_data, ["GHI", "DNI", "DHI", "Tamb"])
 
 st.subheader("Correlation Heatmap")
 fig, ax = plt.subplots(figsize=(8, 6))
