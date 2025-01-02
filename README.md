@@ -44,6 +44,25 @@ Install all the dependencies listed in the `requirements.txt` file:
    ```
 2. Open and run all cells in `notebook.ipynb` to analyze the data and generate reports.
 
+### 4. Running the Dashboard  
+
+To run the Streamlit dashboard, follow these steps:  
+
+1. **Navigate to the Dashboard Directory**:  
+   Open your terminal or command prompt and navigate to the `dashboard` directory:  
+   ```bash
+   cd dashboard
+   ```
+
+2. **Run the Dashboard**:  
+   Start the Streamlit application by executing:  
+   ```bash
+   streamlit run app.py
+   ```  
+
+3. **View the Dashboard**:  
+   Once the server starts, a link will be provided (e.g., `http://localhost:8501`). Click the link or copy it into your browser to interact with the dashboard.  
+
 ---
 
 ## Author
