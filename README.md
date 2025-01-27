@@ -58,9 +58,13 @@ To run the Streamlit dashboard, follow these steps:
    Start the Streamlit application by executing:  
    ```bash
    streamlit run app.py
-   ```  
+   ```
+   Or
+   ```bash
+   python -m streamlit run app.py
+   ```
 
-3. **View the Dashboard**:  
+4. **View the Dashboard**:  
    Once the server starts, a link will be provided (e.g., `http://localhost:8501`). Click the link or copy it into your browser to interact with the dashboard.  
 
 ---
