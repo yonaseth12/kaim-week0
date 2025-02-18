@@ -24,7 +24,7 @@ This is a Python-based project designed to analyze datasets and generate insight
    ```
 4. Activate the virtual environment:
    ```bash
-   source <venv_name>/Scripts/activate
+   <venv_name>/Scripts/activate
    ```
    **Note:** If activation fails, run the following command in your terminal and retry the activation:
    ```bash
